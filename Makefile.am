@@ -1470,6 +1470,12 @@ onewire_la_LDFLAGS = $(PLUGIN_LDFLAGS) $(BUILD_WITH_LIBOWCAPI_LDFLAGS)
 onewire_la_LIBADD = libignorelist.la $(BUILD_WITH_LIBOWCAPI_LIBS)
 endif
 
+if BUILD_PLUGIN_OPENAFS
+pkglib_LTLIBRARIES += openafs.la
+openafs_la_SOURCES = src/openafs.c
+openafs_la_LDFLAGS = $(PLUGIN_LDFLAGS) -lrt
+endif
+
 if BUILD_PLUGIN_OPENLDAP
 pkglib_LTLIBRARIES += openldap.la
 openldap_la_SOURCES = src/openldap.c
