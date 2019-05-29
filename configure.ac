@@ -6403,6 +6403,7 @@ plugin_memory="no"
 plugin_multimeter="no"
 plugin_nfs="no"
 plugin_numa="no"
+plugin_openafs="yes"
 plugin_ovs_events="no"
 plugin_ovs_stats="no"
 plugin_pcie_errors="no"
@@ -6867,6 +6868,7 @@ AC_PLUGIN([numa],                [$plugin_numa],              [NUMA virtual memo
 AC_PLUGIN([nut],                 [$with_libupsclient],        [Network UPS tools statistics])
 AC_PLUGIN([olsrd],               [yes],                       [olsrd statistics])
 AC_PLUGIN([onewire],             [$with_libowcapi],           [OneWire sensor statistics])
+AC_PLUGIN([openafs],             [$plugin_openafs],           [Stats from OpenAFS])
 AC_PLUGIN([openldap],            [$with_libldap],             [OpenLDAP statistics])
 AC_PLUGIN([openvpn],             [yes],                       [OpenVPN client statistics])
 AC_PLUGIN([oracle],              [$with_oracle],              [Oracle plugin])
@@ -7294,6 +7296,7 @@ AC_MSG_RESULT([    numa  . . . . . . . . $enable_numa])
 AC_MSG_RESULT([    nut . . . . . . . . . $enable_nut])
 AC_MSG_RESULT([    olsrd . . . . . . . . $enable_olsrd])
 AC_MSG_RESULT([    onewire . . . . . . . $enable_onewire])
+AC_MSG_RESULT([    openafs . . . . . . . $enable_openafs])
 AC_MSG_RESULT([    openldap  . . . . . . $enable_openldap])
 AC_MSG_RESULT([    openvpn . . . . . . . $enable_openvpn])
 AC_MSG_RESULT([    oracle  . . . . . . . $enable_oracle])
