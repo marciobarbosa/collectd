@@ -283,6 +283,14 @@ vs_processes            value:GAUGE:0:65535
 vs_threads              value:GAUGE:0:65535
 
 #
+# OpenAFS
+#
+openafs-part-vicepa_n_attached               value:GAUGE:0:U
+openafs-part-vicepa_n_preattached            value:GAUGE:0:U
+openafs-part-vicepb_n_attached               value:GAUGE:0:U
+openafs-part-vicepb_n_preattached            value:GAUGE:0:U
+
+#
 # Legacy types
 # (required for the v5 upgrade target)
 #

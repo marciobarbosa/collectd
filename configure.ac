@@ -725,6 +725,12 @@ AC_CACHE_CHECK([whether clock_boottime and clock_monotonic are supported],
   ]
 )
 
+# For the OpenAFS plugin
+AC_CHECK_HEADERS([stdatomic.h],
+  [have_stdatomic_h="yes"],
+  [have_stdatomic_h="no"]
+)
+
 
 #
 # Checks for typedefs, structures, and compiler characteristics.
@@ -6403,6 +6409,7 @@ plugin_memory="no"
 plugin_multimeter="no"
 plugin_nfs="no"
 plugin_numa="no"
+plugin_openafs="no"
 plugin_ovs_events="no"
 plugin_ovs_stats="no"
 plugin_pcie_errors="no"
@@ -6760,6 +6767,10 @@ if test "x$with_libdpdk" = "xyes"; then
   plugin_dpdkstat="yes"
 fi
 
+if test "x$have_stdatomic_h" = "xyes"; then
+  plugin_openafs="yes"
+fi
+
 m4_divert_once([HELP_ENABLE], [
 collectd plugins:])
 
@@ -6867,6 +6878,7 @@ AC_PLUGIN([numa],                [$plugin_numa],              [NUMA virtual memo
 AC_PLUGIN([nut],                 [$with_libupsclient],        [Network UPS tools statistics])
 AC_PLUGIN([olsrd],               [yes],                       [olsrd statistics])
 AC_PLUGIN([onewire],             [$with_libowcapi],           [OneWire sensor statistics])
+AC_PLUGIN([openafs],             [$plugin_openafs],           [Stats from OpenAFS])
 AC_PLUGIN([openldap],            [$with_libldap],             [OpenLDAP statistics])
 AC_PLUGIN([openvpn],             [yes],                       [OpenVPN client statistics])
 AC_PLUGIN([oracle],              [$with_oracle],              [Oracle plugin])
@@ -7294,6 +7306,7 @@ AC_MSG_RESULT([    numa  . . . . . . . . $enable_numa])
 AC_MSG_RESULT([    nut . . . . . . . . . $enable_nut])
 AC_MSG_RESULT([    olsrd . . . . . . . . $enable_olsrd])
 AC_MSG_RESULT([    onewire . . . . . . . $enable_onewire])
+AC_MSG_RESULT([    openafs . . . . . . . $enable_openafs])
 AC_MSG_RESULT([    openldap  . . . . . . $enable_openldap])
 AC_MSG_RESULT([    openvpn . . . . . . . $enable_openvpn])
 AC_MSG_RESULT([    oracle  . . . . . . . $enable_oracle])
